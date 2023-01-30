@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.alexandredev.teste.entities.User;
 import com.alexandredev.teste.repository.UserRepository;
+import com.alexandredev.teste.services.exception.ObjectNotFoundException;
 
 @Service
 public class UserService {
@@ -21,10 +22,12 @@ public class UserService {
 	
 	public User findById(Long id) {
 		Optional<User> obj = repository.findById(id);
-		return obj.get();
-	}
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+		}
 	
+	/*
 	public User insert(User obj) {
 		return repository.save(obj);
 	}
+	*/
 }
