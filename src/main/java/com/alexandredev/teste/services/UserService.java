@@ -3,6 +3,7 @@ package com.alexandredev.teste.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alexandredev.teste.entities.User;
@@ -11,6 +12,7 @@ import com.alexandredev.teste.repository.UserRepository;
 @Service
 public class UserService {
 
+	@Autowired
 	private UserRepository repository;
 	
 	public List<User> findAll() {
