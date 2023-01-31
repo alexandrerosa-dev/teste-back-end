@@ -22,16 +22,18 @@ public class Address implements Serializable {
 	private String cep;
 	private Integer numero;
 	private String cidade;
+	private User resident;
 	
 	public Address() {
 	}
 
-	public Address(Long id, String logradouro, String cep, Integer numero, String cidade) {
+	public Address(Long id, String logradouro, String cep, Integer numero, String cidade, User resident) {
 		this.id = id;
 		this.logradouro = logradouro;
 		this.cep = cep;
 		this.numero = numero;
 		this.cidade = cidade;
+		this.resident = resident;
 	}
 
 	public Long getId() {
@@ -73,6 +75,17 @@ public class Address implements Serializable {
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
+	
+
+	public User getResident() {
+		return resident;
+	}
+
+	public void setResident(User resident) {
+		this.resident = resident;
+	}
+
+	
 
 	@Override
 	public int hashCode() {
@@ -91,5 +104,4 @@ public class Address implements Serializable {
 		return Objects.equals(id, other.id);
 	}
 
-	
 }
