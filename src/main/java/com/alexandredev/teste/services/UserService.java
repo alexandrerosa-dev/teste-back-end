@@ -34,4 +34,9 @@ public class UserService {
 	public User fromDTO(UserDTO objDto) {
 		return new User(objDto.getId(), objDto.getName(), objDto.getBirthDate());
 	}
+	
+	public void delete(Long id) {
+		findById(id);
+		repository.deleteById(id);
+	}
 }
