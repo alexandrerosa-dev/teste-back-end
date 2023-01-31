@@ -4,11 +4,14 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import com.alexandredev.teste.DTO.ResidentDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,6 +28,11 @@ public class Address implements Serializable {
 	private Integer numero;
 	private String cidade;
 	private ResidentDTO resident;
+	
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name = "owner_id")
+	private User owner;
 	
 	public Address() {
 	}
