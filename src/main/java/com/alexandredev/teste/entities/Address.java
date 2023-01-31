@@ -3,6 +3,8 @@ package com.alexandredev.teste.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.alexandredev.teste.DTO.ResidentDTO;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,12 +24,12 @@ public class Address implements Serializable {
 	private String cep;
 	private Integer numero;
 	private String cidade;
-	private User resident;
+	private ResidentDTO resident;
 	
 	public Address() {
 	}
 
-	public Address(Long id, String logradouro, String cep, Integer numero, String cidade, User resident) {
+	public Address(Long id, String logradouro, String cep, Integer numero, String cidade, ResidentDTO resident) {
 		this.id = id;
 		this.logradouro = logradouro;
 		this.cep = cep;
@@ -77,11 +79,11 @@ public class Address implements Serializable {
 	}
 	
 
-	public User getResident() {
+	public ResidentDTO getResident() {
 		return resident;
 	}
 
-	public void setResident(User resident) {
+	public void setResident(ResidentDTO resident) {
 		this.resident = resident;
 	}
 
