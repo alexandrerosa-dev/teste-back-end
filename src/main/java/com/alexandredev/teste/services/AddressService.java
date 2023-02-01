@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.alexandredev.teste.DTO.UserDTO;
 import com.alexandredev.teste.entities.Address;
+import com.alexandredev.teste.entities.User;
 import com.alexandredev.teste.repository.AddressRepository;
 import com.alexandredev.teste.services.exception.ObjectNotFoundException;
 
@@ -33,6 +35,25 @@ public class AddressService {
 	public void delete(Long id) {
 		findById(id);
 		repository.deleteById(id);
+	}
+	
+
+	public Address update(Address obj) {
+		Address newObj = findById(obj.getId());
+		addressupdateData(newObj, obj);
+		return repository.save(newObj);
+		}
+
+	private void addressupdateData(Address newObj, Address obj) {
+		newObj.setLogradouro(obj.getLogradouro());
+		newObj.setCep(obj.getCep());
+		newObj.setNumero(obj.getNumero());
+		newObj.setCidade(obj.getCidade());
+		
+	}
+	
+	public User fromDTO(UserDTO objDto) {
+		return new User(objDto.getId(), objDto.getName(), objDto.getBirthDate());
 	}
 	
 }

@@ -36,6 +36,7 @@ public class Instantiation implements CommandLineRunner {
 		Address mainAddress = new Address(null, "Rua Esther Costa", "23064-410", 8, "Rio de Janeiro", new ResidentDTO(maria));
 		Address secondaryAddress = new Address(null, "Rua Andorinha", "23064-240", 23, "Rio de Janeiro", new ResidentDTO(maria));
 		
+		
 		addressRepository.saveAll(Arrays.asList(mainAddress, secondaryAddress));
 	
 	}
